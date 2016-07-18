@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="import" href="../bower_components/polymer/polymer.html"/> <!-- import Polymer -->
+</head>
+<body>
+
+    <dom-module id="my-component">
+        <template> <!-- template our component: html-structure and styles -->
+            <style>
+                .container {
+                    font-family: Roboto, Noto, sans-serif;
+                }
+                #name {
+                    color: red;
+                }
+            </style>
+            <div class="container">
+                <div id="hello-box">
+                    Hi, <span id="name">[[name]]</span> <!-- [[name]] is variable that can be passed in html tags attributes -->
+                </div>
+            </div>
+        </template>
+
+        <script>
+            Polymer({ // initialised component
+                is: 'my-component', // identifies tag, through which we can call the component
+                properties: { // specify which attributes can take our html-tag component
+                    name: {
+                        type: String, // data type
+                        value: 'Volodymyr' // default value
+                    }
+                },
+                attached: function(){
+                    console.log('Component Initialised')
+                    // attached call when element and template already was rendered in DOM.
+                    // This is a good place for function that works with DOM-element, such as animations.
+                }
+            })
+        </script>
+    </dom-module>
+
+</body>
+</html>
